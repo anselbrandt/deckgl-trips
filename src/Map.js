@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import DeckGL from '@deck.gl/react';
-import { GeoJsonLayer } from '@deck.gl/layers';
+import { TripsLayer } from '@deck.gl/geo-layers';
 import { StaticMap } from 'react-map-gl';
-import GeoJSON from './trip.json';
+import trips from './trips.json';
 
 const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
 
@@ -14,18 +14,37 @@ const initialViewState = {
   bearing: 0,
 };
 
-const data = GeoJSON;
-
 export default function Map() {
-  const layers = new GeoJsonLayer({
-    id: 'geojson-layer',
-    data,
-    stroked: true,
-    lineWidthScale: 1,
-    lineWidthMinPixels: 1,
-    getLineColor: [255, 99, 71],
-    getLineWidth: 1,
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const loopLength = 86400;
+      const animationSpeed = 30;
+      const timestamp = Date.now() / 1000;
+      const loopTime = loopLength / animationSpeed;
+      setTime(((timestamp % loopTime) / loopTime) * loopLength);
+    });
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
   });
+
+  const layers = [
+    new TripsLayer({
+      id: 'trips',
+      data: trips,
+      getPath: (d) => d.path,
+      getTimestamps: (d) => d.timestamps,
+      getColor: [255, 99, 71],
+      opacity: 0.3,
+      widthMinPixels: 2,
+      rounded: true,
+      trailLength: 200,
+      currentTime: time,
+      shadowEnabled: false,
+    }),
+  ];
   return (
     <DeckGL
       initialViewState={initialViewState}
