@@ -20,7 +20,7 @@ export default function Map() {
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
       const loopLength = 86400;
-      const animationSpeed = 60;
+      const animationSpeed = 480;
       const timestamp = Date.now() / 1000;
       const loopTime = loopLength / animationSpeed;
       setTime(((timestamp % loopTime) / loopTime) * loopLength);
@@ -40,7 +40,7 @@ export default function Map() {
       opacity: 0.3,
       widthMinPixels: 2,
       rounded: true,
-      trailLength: 200,
+      trailLength: 5000,
       currentTime: time,
       shadowEnabled: false,
     }),
