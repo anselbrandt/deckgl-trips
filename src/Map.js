@@ -20,7 +20,7 @@ export default function Map() {
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
       const loopLength = 86400;
-      const animationSpeed = 30;
+      const animationSpeed = 60;
       const timestamp = Date.now() / 1000;
       const loopTime = loopLength / animationSpeed;
       setTime(((timestamp % loopTime) / loopTime) * loopLength);
@@ -51,7 +51,10 @@ export default function Map() {
       controller={true}
       layers={layers}
     >
-      <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />
+      <StaticMap
+        mapStyle={'mapbox://styles/mappingmtl/ck87roalx0h3n1jp72b1hgun4'}
+        mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
+      />
     </DeckGL>
   );
 }
