@@ -28,7 +28,7 @@ export default function Map() {
     return () => {
       window.cancelAnimationFrame(frame);
     };
-  });
+  }, [time]);
 
   const layers = [
     new TripsLayer({
