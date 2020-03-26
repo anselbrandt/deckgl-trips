@@ -14,22 +14,8 @@ const initialViewState = {
   bearing: 0,
 };
 
-export default function Map() {
-  const [time, setTime] = useState(0);
-
-  useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      const loopLength = 86400;
-      const animationSpeed = 480;
-      const timestamp = Date.now() / 1000;
-      const loopTime = loopLength / animationSpeed;
-      setTime(((timestamp % loopTime) / loopTime) * loopLength);
-    });
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, [time]);
-
+export default function Map(props) {
+  const { time } = props;
   const layers = [
     new TripsLayer({
       id: 'trips',
