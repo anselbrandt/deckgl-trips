@@ -15,6 +15,7 @@
 .controls {
   position: absolute;
   z-index: 10000;
+  margin: 10px;
   padding: 10px;
   top: 0;
   right: 0;
@@ -22,6 +23,7 @@
   text-align: center;
   font-weight: bold;
   line-height: 1.5;
+  outline: 1px solid white;
 }
 
 .controls > button {
@@ -30,11 +32,10 @@
   font-size: 24px;
   margin-bottom: 0.2em;
   width: 100%;
-  background-color: #333;
+  background-color: transparent;
   font-weight: bold;
-  border: none;
-  border-radius: 8px;
   color: #fff;
+  border-color: transparent;
 }
 
 .controls > .display {
@@ -47,11 +48,11 @@
 }
 
 .controls > button:hover {
-  background-color: #666;
+  border: 1px solid white;
 }
 
 .controls > button:active {
-  background-color: #555;
+  border: 1px solid white;
 }
 
 @media (any-hover: none) {
@@ -68,7 +69,6 @@
     margin-bottom: 0.1em;
     width: 100%;
     font-weight: normal;
-    border-radius: 4px;
   }
 }
 
@@ -90,4 +90,18 @@
   .tooltip {
     font-size: 2em;
   }
+}
+
+.legend {
+  position: absolute;
+  z-index: 10000;
+  margin: 30px;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.5;
+  outline: 1px solid white;
 }

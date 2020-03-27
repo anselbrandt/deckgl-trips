@@ -34,7 +34,13 @@ function App() {
       <div className={styles.controls}>
         <button onClick={handlePlayPause}>Play/Pause</button>
         <button onClick={handleReset}>Reset</button>
-        <div className={styles.display}>{time.toFixed()}</div>
+        <div className={styles.display}>
+          {`${new Date(+(time * 1000).toFixed()).toISOString().slice(11, -5)}`}
+        </div>
+      </div>
+      <div className={styles.legend}>
+        This should appear at the very bottom of the screen overlayed on top of
+        the map.
       </div>
     </div>
   );
