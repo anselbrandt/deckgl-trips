@@ -35,7 +35,7 @@
   background-color: transparent;
   font-weight: bold;
   color: #fff;
-  border-color: transparent;
+  border: 1px solid transparent;
 }
 
 .controls > .display {
