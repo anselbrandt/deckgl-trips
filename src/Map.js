@@ -7,9 +7,9 @@ import trips from './trips.json';
 const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
 
 const initialViewState = {
-  longitude: -73.675,
-  latitude: 45.551,
-  zoom: 10.6,
+  longitude: -73.625,
+  latitude: 45.525,
+  zoom: 9.5,
   pitch: 0,
   bearing: 0,
 };

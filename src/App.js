@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 import Map from './Map';
+import Controls from './Controls';
+import Legend from './Legend';
 
 function App() {
   const [time, setTime] = useState(0);
@@ -28,20 +30,19 @@ function App() {
     setTime(0);
   };
 
+  const handleSetTime = (event) => {
+    setTime(event.target.value / 1000);
+  };
+
   return (
     <div className={styles.app}>
       <Map width={'100vw'} height={'100vh'} time={time} />
-      <div className={styles.controls}>
-        <button onClick={handlePlayPause}>Play/Pause</button>
-        <button onClick={handleReset}>Reset</button>
-        <div className={styles.display}>
-          {`${new Date(+(time * 1000).toFixed()).toISOString().slice(11, -5)}`}
-        </div>
-      </div>
-      <div className={styles.legend}>
-        This should appear at the very bottom of the screen overlayed on top of
-        the map.
-      </div>
+      <Controls
+        time={time}
+        handlePlayPause={handlePlayPause}
+        handleReset={handleReset}
+      />
+      <Legend handleSetTime={handleSetTime} />
     </div>
   );
 }
