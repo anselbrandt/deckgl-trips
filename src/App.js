@@ -3,10 +3,13 @@ import styles from './App.module.css';
 import Map from './Map';
 import Controls from './Controls';
 import Legend from './Legend';
+import Clock from './Clock';
+import useGetViewport from './useGetViewport';
 
 function App() {
   const [time, setTime] = useState(0);
   const [isPlaying, setIsPlayling] = useState(false);
+  const { width } = useGetViewport();
 
   useEffect(() => {
     if (isPlaying) {
@@ -42,7 +45,8 @@ function App() {
         handlePlayPause={handlePlayPause}
         handleReset={handleReset}
       />
-      <Legend handleSetTime={handleSetTime} />
+      <Clock time={time * 1000} style={{ width: '10vw', height: '10vw' }} />
+      <Legend handleSetTime={handleSetTime} width={width} />
     </div>
   );
 }

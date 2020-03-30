@@ -1,0 +1,76 @@
+.clock {
+  position: absolute;
+  z-index: 10000;
+  margin: 10px;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: transparent url(./station_clock.svg) no-repeat center;
+  background-size: 95%;
+}
+
+.minutesContainer,
+.hoursContainer,
+.secondsContainer {
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hours {
+  background: white;
+  height: 42%;
+  left: 48.5%;
+  position: absolute;
+  top: 15%;
+  transform-origin: 50% 100%;
+  width: 3%;
+}
+
+.minutes {
+  background: white;
+  height: 54.5%;
+  left: 49%;
+  position: absolute;
+  top: 2.5%;
+  transform-origin: 50% 100%;
+  width: 2%;
+}
+/* 
+.seconds {
+  background: red;
+  height: 44%;
+  left: 49.5%;
+  position: absolute;
+  top: 15%;
+  transform-origin: 50% 80%;
+  width: 1%;
+  z-index: 8;
+}
+
+.secondsIndicator {
+  background: red;
+  border-radius: 50%;
+  height: 5%;
+  left: 47.5%;
+  position: absolute;
+  top: 15%;
+  transform-origin: 50% 80%;
+  width: 5%;
+  z-index: 8;
+} */
+
+.ampm {
+  font-size: 0.65em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 60%;
+  transform-origin: 50% 100%;
+}
