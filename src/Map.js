@@ -1,8 +1,8 @@
-import React from 'react';
-import DeckGL from '@deck.gl/react';
-import { TripsLayer } from '@deck.gl/geo-layers';
-import { StaticMap } from 'react-map-gl';
-import trips from './trips.json';
+import React from "react";
+import DeckGL from "@deck.gl/react";
+import { TripsLayer } from "@deck.gl/geo-layers";
+import { StaticMap } from "react-map-gl";
+import trips from "./trips.json";
 
 const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
 
@@ -14,11 +14,10 @@ const initialViewState = {
   bearing: 0,
 };
 
-export default function Map(props) {
-  const { time } = props;
+export default function Map({ time }) {
   const layers = [
     new TripsLayer({
-      id: 'trips',
+      id: "trips",
       data: trips,
       getPath: (d) => d.path,
       getTimestamps: (d) => d.timestamps,
@@ -38,7 +37,7 @@ export default function Map(props) {
       layers={layers}
     >
       <StaticMap
-        mapStyle={'mapbox://styles/mappingmtl/ck87roalx0h3n1jp72b1hgun4'}
+        mapStyle={"mapbox://styles/mappingmtl/ck87roalx0h3n1jp72b1hgun4"}
         mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
       />
     </DeckGL>

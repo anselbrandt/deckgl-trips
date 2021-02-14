@@ -1,9 +1,8 @@
-import React from 'react';
-import styles from './Controls.module.css';
-import histogram from './histogram.json';
+import React from "react";
+import styles from "./Controls.module.css";
+import histogram from "./histogram.json";
 
-export default function Controls(props) {
-  const { time, handlePlayPause, handleReset } = props;
+export default function Controls({ time, handlePlayPause, handleReset }) {
   return (
     <div className={styles.controls}>
       <button onClick={handlePlayPause}>Play/Pause</button>
@@ -14,7 +13,7 @@ export default function Controls(props) {
           {`${new Date(+(time * 1000).toFixed()).toISOString().slice(11, -5)}`}
         </div> */}
         <div>
-          Riders:{' '}
+          Riders:{" "}
           {`${
             histogram[parseInt((time >= 86400 ? time - 86400 : time) / 900)]
               .count
