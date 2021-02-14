@@ -13,7 +13,13 @@ function App() {
   useEffect(() => {
     const animate = () => {
       const delta = 30;
-      setTime((prev) => prev + delta);
+      setTime((prev) => {
+        if (prev + delta > 86400) {
+          return setTime(0);
+        } else {
+          return prev + delta;
+        }
+      });
       frame.current = requestAnimationFrame(animate);
     };
     if (!isPaused) frame.current = requestAnimationFrame(animate);
