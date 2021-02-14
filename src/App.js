@@ -7,18 +7,15 @@ import Clock from "./Clock";
 
 function App() {
   const frame = useRef();
-  const last = useRef(performance.now());
   const [time, setTime] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const animate = () => {
-      const now = performance.now();
-      const delta = now - last.current;
+      const delta = 30;
       if (!isPaused) {
         setTime((prev) => prev + delta);
       }
-      last.current = now;
       frame.current = requestAnimationFrame(animate);
     };
     frame.current = requestAnimationFrame(animate);
