@@ -13,12 +13,10 @@ function App() {
   useEffect(() => {
     const animate = () => {
       const delta = 30;
-      if (!isPaused) {
-        setTime((prev) => prev + delta);
-      }
+      setTime((prev) => prev + delta);
       frame.current = requestAnimationFrame(animate);
     };
-    frame.current = requestAnimationFrame(animate);
+    if (!isPaused) frame.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame.current);
   }, [isPaused]);
 
