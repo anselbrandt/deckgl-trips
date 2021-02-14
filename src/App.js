@@ -4,7 +4,6 @@ import Map from "./Map";
 import Controls from "./Controls";
 import Legend from "./Legend";
 import Clock from "./Clock";
-import useGetViewport from "./useGetViewport";
 
 function App() {
   const frame = useRef();
